@@ -9,9 +9,12 @@ var minimist = require('minimist');
 
 // Use minimist to process one argument `--port=` on the command line after `node server.js`.
 
+var argv = minimist(process.argv.slice(2));
 
 // Define a const `port` using the argument from the command line. 
 // Make this const default to port 3000 if there is no argument given for `--port`.
+
+const port = argv.port || 3000;
 
 // Use the fs module to create an arrow function using `fs.readFile`.
 // Use the documentation for the Node.js `fs` module. 
@@ -40,7 +43,9 @@ fs.readFile('/Users/nylaanderson/workspace/a01-nylaanderson/public/index.html', 
 		res.setHeader('Content-Type', 'text/html')
 		res.end(data)
 	});
-	
+	server.listen(port, () => {
+		console.log('Server listening on port ${port}`);
+	});
 }); 
 // Use the documentation for the node.js http module. 
 // The function should have three responses: 
