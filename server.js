@@ -32,7 +32,7 @@ const port = argv.port || 3000;
 
 // Define a const `server` as an arrow function using http.createServer.
 
-fs.readFile('/Users/nylaanderson/workspace/a01-nylaanderson/public/index.html', 'utf8', (err, data) => {
+fs.readFile('./public/index.html', 'utf8', (err, data) => {
 	if (err) {
 		console.error(err);
 		return;
